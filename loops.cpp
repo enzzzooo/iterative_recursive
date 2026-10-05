@@ -73,7 +73,7 @@ int totalmationOddSquares(int n)
 int totalmationEvenSquares(int n)
 {
    int total = 0;
-   for (int i = 0; i <= n; i += 2)
+   for (int i = 2; i <= n; i += 2)
    {
 
       total += i * i;
@@ -146,12 +146,46 @@ int quotient(int dividend, int divisor)
 
 int remainder(int dividend, int divisor)
 {
+   for (; dividend >= divisor; dividend -= divisor)
+   {
+   }
+   return dividend;
    // returns the remainder of the integer division by subtracting the divisor to the dividend multiple times, where dividend >=0, and divisor >= 1
    // For example, remainder(9, 2) returns 1
 }
 
 bool isMultiple(int dividend, int divisor)
 {
+   for (; dividend >= divisor; dividend -= divisor)
+   {
+   }
+   if (dividend == 0)
+   {
+      return true;
+   }
+   return false;
+
    // returns true if the dividend is divisible by the divisor and false otherwise, where dividend >=0, and divisor >= 1
    // For example, isMultiple(10, 2) returns true
+}
+int main()
+{
+   cout << "totalmation(5): " << totalmation(5) << "\n";
+   cout << "totalmationOddNumbers(5): " << totalmationOddNumbers(5) << "\n";
+   cout << "totalmationEvenNumbers(6): " << totalmationEvenNumbers(6) << "\n";
+
+   cout << "totalmationSquares(4): " << totalmationSquares(4) << "\n";
+   cout << "totalmationOddSquares(5): " << totalmationOddSquares(5) << "\n";
+   cout << "totalmationEvenSquares(6): " << totalmationEvenSquares(6) << "\n";
+
+   cout << "factorial(5): " << factorial(5) << "\n";
+   cout << "product(4, 3): " << product(4, 3) << "\n";
+   cout << "power(2, 3): " << power(2, 3) << "\n";
+   cout << "log2(8): " << log2(8) << "\n";
+
+   cout << "quotient(9, 2): " << quotient(9, 2) << "\n";
+   cout << "remainder(9, 2): " << remainder(9, 2) << "\n";
+
+   cout << "isMultiple(10, 2): " << isMultiple(10, 2) << "\n";
+   cout << "isMultiple(9, 2): " << isMultiple(9, 2) << "\n";
 }
