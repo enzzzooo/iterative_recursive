@@ -26,9 +26,12 @@ int summation(const int numbers[], int size)
 int summationOddNumbers(const int numbers[], int size)
 {
    int sum = 0;
-   for (int i = 1; i < size; i += 2)
+   for (int i = 0; i < size; i++)
    {
-      sum += numbers[i];
+      if (numbers[i] % 2 != 0)
+      {
+         sum += numbers[i];
+      }
    }
    return sum;
    // returns the sum of the odd values in the array
@@ -37,9 +40,12 @@ int summationOddNumbers(const int numbers[], int size)
 int summationEvenNumbers(const int numbers[], int size)
 {
    int sum = 0;
-   for (int i = 2; i < size; i += 2)
+   for (int i = 0; i < size; i++)
    {
-      sum += numbers[i];
+      if (numbers[i] % 2 == 0)
+      {
+         sum += numbers[i];
+      }
    }
    return sum;
    // returns the sum of the even values in the array
@@ -47,31 +53,81 @@ int summationEvenNumbers(const int numbers[], int size)
 
 int summationSquares(const int numbers[], int size)
 {
+   int sum = 0;
+   for (int i = 0; i < size; i++)
+   {
+      sum += numbers[i] * numbers[i];
+   }
+   return sum;
    // returns the sum of the squares of the values in the array
 }
 
 int summationOddSquares(const int numbers[], int size)
 {
+   int sum = 0;
+   for (int i = 0; i < size; i++)
+   {
+      if (numbers[i] % 2 != 0)
+      {
+         sum += numbers[i] * numbers[i];
+      }
+   }
+   return sum;
    // returns the sum of the squares of the odd values in the array
 }
 
 int summationEvenSquares(const int numbers[], int size)
 {
+   int sum = 0;
+   for (int i = 0; i < size; i++)
+   {
+      if (numbers[i] % 2 == 0)
+      {
+         sum += numbers[i] * numbers[i];
+      }
+   }
+   return sum;
    // returns the sum of the squares of the even values in the array
 }
 
 int min(const int numbers[], int size)
 {
+   int min = numbers[0];
+   for (int i = 1; i < size; i++)
+   {
+      if (numbers[i] < min)
+      {
+         min = numbers[i];
+      }
+   }
+   return min;
    // returns the min value in the array
 }
 
 int max(const int numbers[], int size)
 {
+   int max = numbers[0];
+   for (int i = 1; i < size; i++)
+   {
+      if (numbers[i] > max)
+      {
+         max = numbers[i];
+      }
+   }
+   return max;
    // returns the max value in the array
 }
 
 bool find(const int numbers[], int size, int key)
 {
+   for (int i = 0; i < size; i++)
+   {
+      if (numbers[i] == key)
+      {
+         return true;
+      }
+   }
+   return false;
    // returns true if the key is in the array and false otherwise
 }
 
@@ -82,16 +138,16 @@ int main()
    int numbers[SIZE] = {1, 3, 2, 5, 7, 9, 10, 14, 2, 8, 11, 15, 25, 30, 0};
    // the code for the test cases goes here
    cout << "The summation of numbers is " << summation(numbers, SIZE) << "\n";
-   cout << "The summation of odd numbers is " << summationOddNumbers(numbers, SIZE) << "\n";
    cout << "The summation of even numbers is " << summationEvenNumbers(numbers, SIZE) << "\n";
-   cout << "The summation of the squares of numbers is" << summationSquares(numbers, SIZE) << "\n";
-   cout << "The summation of the squares of even numbers is" << summationEvenSquares(numbers, SIZE) << "\n";
-   cout << "The summation of the squares of odd numbers is" << summationOddSquares(numbers, SIZE) << "\n";
-   cout << "The min value in numbers is" << min(numbers, SIZE) << "\n";
-   cout << "The max value in numbers is" << max(numbers, SIZE) << "\n";
+   cout << "The summation of odd numbers is " << summationOddNumbers(numbers, SIZE) << "\n";
+   cout << "The summation of the squares of numbers is " << summationSquares(numbers, SIZE) << "\n";
+   cout << "The summation of the squares of odd numbers is " << summationOddSquares(numbers, SIZE) << "\n";
+   cout << "The summation of the squares of even numbers is " << summationEvenSquares(numbers, SIZE) << "\n";
+   cout << "The min value in numbers is " << min(numbers, SIZE) << "\n";
+   cout << "The max value in numbers is " << max(numbers, SIZE) << "\n";
    int key = 99;
-   cout << key << "is not in numbers" << "\n";
+   cout << key << " is not in numbers " << "\n";
    int key2 = 25;
-   cout << key2 << "is in numbers" << "\n";
+   cout << key2 << " is in numbers " << "\n";
    return 0;
 }
